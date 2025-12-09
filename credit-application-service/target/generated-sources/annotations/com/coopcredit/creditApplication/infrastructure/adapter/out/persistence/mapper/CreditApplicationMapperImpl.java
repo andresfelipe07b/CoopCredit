@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-12-09T08:46:25-0500",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.44.0.v20251118-1623, environment: Java 21.0.9 (Eclipse Adoptium)"
+    date = "2025-12-09T11:32:49-0500",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.17 (Ubuntu)"
 )
 @Component
 public class CreditApplicationMapperImpl implements CreditApplicationMapper {
@@ -45,13 +45,13 @@ public class CreditApplicationMapperImpl implements CreditApplicationMapper {
         CreditApplicationEntity.CreditApplicationEntityBuilder creditApplicationEntity = CreditApplicationEntity.builder();
 
         creditApplicationEntity.affiliate( creditApplicationToAffiliateEntity( domain ) );
+        creditApplicationEntity.id( domain.getId() );
         creditApplicationEntity.amount( domain.getAmount() );
+        creditApplicationEntity.term( domain.getTerm() );
         creditApplicationEntity.baseRate( domain.getBaseRate() );
+        creditApplicationEntity.status( domain.getStatus() );
         creditApplicationEntity.createdAt( domain.getCreatedAt() );
         creditApplicationEntity.evaluation( riskEvaluationToRiskEvaluationEntity( domain.getEvaluation() ) );
-        creditApplicationEntity.id( domain.getId() );
-        creditApplicationEntity.status( domain.getStatus() );
-        creditApplicationEntity.term( domain.getTerm() );
 
         return creditApplicationEntity.build();
     }
@@ -106,11 +106,11 @@ public class CreditApplicationMapperImpl implements CreditApplicationMapper {
 
         RiskEvaluationEntity.RiskEvaluationEntityBuilder riskEvaluationEntity = RiskEvaluationEntity.builder();
 
-        riskEvaluationEntity.createdAt( riskEvaluation.getCreatedAt() );
         riskEvaluationEntity.id( riskEvaluation.getId() );
+        riskEvaluationEntity.score( riskEvaluation.getScore() );
         riskEvaluationEntity.reason( riskEvaluation.getReason() );
         riskEvaluationEntity.riskLevel( riskEvaluation.getRiskLevel() );
-        riskEvaluationEntity.score( riskEvaluation.getScore() );
+        riskEvaluationEntity.createdAt( riskEvaluation.getCreatedAt() );
 
         return riskEvaluationEntity.build();
     }

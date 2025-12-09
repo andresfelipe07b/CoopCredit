@@ -12,6 +12,8 @@ import com.coopcredit.creditApplication.domain.usecase.CreateCreditApplicationUs
 import com.coopcredit.creditApplication.domain.usecase.EvaluateCreditApplicationUseCaseImpl;
 import com.coopcredit.creditApplication.domain.usecase.GetCreditApplicationUseCaseImpl;
 import com.coopcredit.creditApplication.domain.usecase.RegisterAffiliateUseCaseImpl;
+import com.coopcredit.creditApplication.domain.port.in.UpdateAffiliateUseCase;
+import com.coopcredit.creditApplication.domain.usecase.UpdateAffiliateUseCaseImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,6 +23,11 @@ public class DomainBeanConfiguration {
     @Bean
     public RegisterAffiliateUseCase registerAffiliateUseCase(AffiliateRepositoryPort affiliateRepositoryPort) {
         return new RegisterAffiliateUseCaseImpl(affiliateRepositoryPort);
+    }
+
+    @Bean
+    public UpdateAffiliateUseCase updateAffiliateUseCase(AffiliateRepositoryPort affiliateRepositoryPort) {
+        return new UpdateAffiliateUseCaseImpl(affiliateRepositoryPort);
     }
 
     @Bean

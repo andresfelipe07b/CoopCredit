@@ -35,11 +35,7 @@ public class EvaluateCreditApplicationUseCaseImpl implements EvaluateCreditAppli
                 .orElseThrow(() -> new IllegalArgumentException("Application not found"));
 
         if (application.getStatus() != ApplicationStatus.PENDING) {
-            // In real world, maybe allow re-evaluation if REJECTED? For now stick to
-            // strict.
-            // But for manual trigger, maybe we want to force re-evaluation.
-            // Requirement says "Analista -> solicitudes en estado PENDIENTE". So strict
-            // check is good.
+            // Requirement: Analyst evaluates PENDING applications
             throw new IllegalStateException("Application is not pending");
         }
 

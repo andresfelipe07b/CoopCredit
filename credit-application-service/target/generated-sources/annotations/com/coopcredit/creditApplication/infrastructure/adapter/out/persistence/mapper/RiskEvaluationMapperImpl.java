@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-12-09T08:46:25-0500",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.44.0.v20251118-1623, environment: Java 21.0.9 (Eclipse Adoptium)"
+    date = "2025-12-09T11:32:49-0500",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.17 (Ubuntu)"
 )
 @Component
 public class RiskEvaluationMapperImpl implements RiskEvaluationMapper {
@@ -41,11 +41,11 @@ public class RiskEvaluationMapperImpl implements RiskEvaluationMapper {
         RiskEvaluationEntity.RiskEvaluationEntityBuilder riskEvaluationEntity = RiskEvaluationEntity.builder();
 
         riskEvaluationEntity.application( riskEvaluationToCreditApplicationEntity( domain ) );
-        riskEvaluationEntity.createdAt( domain.getCreatedAt() );
         riskEvaluationEntity.id( domain.getId() );
+        riskEvaluationEntity.score( domain.getScore() );
         riskEvaluationEntity.reason( domain.getReason() );
         riskEvaluationEntity.riskLevel( domain.getRiskLevel() );
-        riskEvaluationEntity.score( domain.getScore() );
+        riskEvaluationEntity.createdAt( domain.getCreatedAt() );
 
         return riskEvaluationEntity.build();
     }

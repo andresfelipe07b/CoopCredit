@@ -35,6 +35,7 @@
 /home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/infrastructure/adapter/out/persistence/repository/SpringDataAffiliateRepository.java
 /home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/domain/usecase/GetCreditApplicationUseCaseImpl.java
 /home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/infrastructure/adapter/out/persistence/mapper/RiskEvaluationMapper.java
+/home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/domain/port/in/UpdateAffiliateUseCase.java
 /home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/CreditApplicationServiceApplication.java
 /home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/infrastructure/adapter/out/persistence/CreditApplicationRepositoryAdapter.java
 /home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/infrastructure/security/entity/UserEntity.java
@@ -43,6 +44,8 @@
 /home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/infrastructure/adapter/out/persistence/entity/CreditApplicationEntity.java
 /home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/infrastructure/adapter/out/persistence/repository/SpringDataCreditApplicationRepository.java
 /home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/infrastructure/adapter/out/persistence/RiskEvaluationRepositoryAdapter.java
+/home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/domain/usecase/UpdateAffiliateUseCaseImpl.java
+/home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/infrastructure/adapter/in/web/controller/AffiliateController.java
 /home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/infrastructure/adapter/out/persistence/entity/AffiliateEntity.java
 /home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/infrastructure/adapter/out/external/dto/RiskEvaluationRequest.java
 /home/dres/Escritorio/CoopCredit/credit-application-service/src/main/java/com/coopcredit/creditApplication/domain/port/in/CreateCreditApplicationUseCase.java

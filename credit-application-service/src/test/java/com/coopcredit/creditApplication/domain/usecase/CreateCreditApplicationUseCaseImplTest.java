@@ -13,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalDate;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
@@ -41,16 +42,27 @@ class CreateCreditApplicationUseCaseImplTest {
         app.setAmount(5000.0);
         app.setTerm(12);
 
-        com.coopcredit.creditApplication.domain.model.RiskEvaluation riskEval = new com.coopcredit.creditApplication.domain.model.RiskEvaluation(
-                null, null, 800, "OK", "BAJO RIESGO", java.time.LocalDateTime.now());
-
         when(affiliateRepo.findById(1L)).thenReturn(Optional.of(affiliate));
-        when(riskRepo.evaluate("123", 5000.0, 12)).thenReturn(riskEval);
+        // Remove riskRepo stubbing as it's no longer called in Create
         when(creditRepo.save(any())).thenAnswer(i -> i.getArguments()[0]);
 
         CreditApplication result = useCase.create(app);
         assertNotNull(result);
+        assertEquals(com.coopcredit.creditApplication.domain.model.ApplicationStatus.PENDING, result.getStatus());
         verify(creditRepo).save(app);
+    }
+
+    @Test
+    void create_ShouldThrow_WhenAmountExceeds10xSalary() {
+        Affiliate affiliate = new Affiliate(1L, "Test", "mail", "123", 1000.0, "Addr", LocalDate.now().minusMonths(7),
+                true);
+        CreditApplication app = new CreditApplication();
+        app.setAffiliateId(1L);
+        app.setAmount(15000.0); // 15x salary
+
+        when(affiliateRepo.findById(1L)).thenReturn(Optional.of(affiliate));
+
+        assertThrows(IllegalArgumentException.class, () -> useCase.create(app));
     }
 
     @Test

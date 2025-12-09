@@ -12,19 +12,19 @@ public class RiskCentralController {
 
     @PostMapping("/risk-evaluation")
     public ResponseEntity<RiskEvaluationResponse> evaluate(@RequestBody RiskEvaluationRequest request) {
-        // Lógica requerida: Seed numérico (hash mod 1000)
+        // Business Logic: Numeric Seed (hash mod 1000)
         int seed = Math.abs(request.getDocument().hashCode() % 1000);
 
-        // Generar score entre 300 y 950 basado en seed
-        // Normalizamos seed (0-999) al rango (300-950) -> amplitud 650
+        // Generate score between 300 and 950 based on seed
+        // Normalize seed (0-999) to range (300-950) -> amplitude 650
         int score = 300 + (seed * 650 / 999);
 
         String nivelRiesgo;
         String detalle;
 
         if (score <= 500) {
-            nivelRiesgo = "ALTO_RIESGO"; // Ajustado a convención o string literal del enunciado "ALTO RIESGO"?
-            // Enunciado dice: 300–500 → ALTO RIESGO
+            nivelRiesgo = "ALTO_RIESGO";
+            // Requirement: 300-500 -> ALTO RIESGO
             nivelRiesgo = "ALTO RIESGO";
             detalle = "Historial crediticio deficiente. Alta probabilidad de impago.";
         } else if (score <= 700) {

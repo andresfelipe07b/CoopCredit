@@ -15,7 +15,7 @@
                         "header": [],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n  \"name\": \"Juan Perez\",\n  \"email\": \"juan@mail.com\",\n  \"document\": \"12345678\",\n  \"salary\": 5000000,\n  \"address\": \"Calle 100\",\n  \"startDate\": \"2023-01-01\",\n  \"password\": \"password\",\n  \"role\": \"ROLE_AFILIADO\"\n}",
+                            "raw": "{\n  \"name\": \"Juan Perez\",\n  \"email\": \"juan@mail.com\",\n  \"document\": \"12345678\",\n  \"salary\": 5000000,\n  \"address\": \"Calle 100\",\n  \"startDate\": \"2023-01-01\",\n  \"password\": \"password123\",\n  \"role\": \"ROLE_AFILIADO\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -44,7 +44,7 @@
                         "header": [],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n  \"username\": \"12345678\",\n  \"password\": \"password\"\n}",
+                            "raw": "{\n  \"username\": \"12345678\",\n  \"password\": \"password123\"\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -84,9 +84,80 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n  \"affiliateId\": 1,\n  \"amount\": 1000000,\n  \"term\": 12\n}",
-                            "options": {}
-                        ]
-                    }
-                ]
-            }
+                            "raw": "{\n  \"affiliateId\": 1,\n  \"amount\": 2000000,\n  \"term\": 12\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "http://localhost:8090/applications",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8090",
+                            "path": [
+                                "applications"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Applications (List)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer <TOKEN>",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://localhost:8090/applications",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8090",
+                            "path": [
+                                "applications"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Evaluate Application (Analyst)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer <ANALYST_TOKEN>",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://localhost:8090/applications/1/evaluate",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8090",
+                            "path": [
+                                "applications",
+                                "1",
+                                "evaluate"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}

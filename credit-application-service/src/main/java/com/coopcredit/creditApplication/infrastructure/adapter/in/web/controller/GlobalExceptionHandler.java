@@ -50,6 +50,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return createResponseEntity(problemDetail, headers, status, request);
     }
 
+    @ExceptionHandler(org.springframework.security.access.AccessDeniedException.class)
+    ProblemDetail handleAccessDenied(org.springframework.security.access.AccessDeniedException e) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.FORBIDDEN, e.getMessage());
+        problemDetail.setTitle("Forbidden");
+        problemDetail.setType(URI.create("https://coopcredit.com/errors/forbidden"));
+        return problemDetail;
+    }
+
     @ExceptionHandler(Exception.class)
     ProblemDetail handleGeneral(Exception e) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR,
