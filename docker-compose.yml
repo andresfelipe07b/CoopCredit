@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+
+  credit-application-service:
+    build:
+      context: ./credit-application-service
+      dockerfile: Dockerfile
+    container_name: credit-service
+    ports:
+      - "8090:8090"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://aws-0-us-west-2.pooler.supabase.com:6543/postgres?prepareThreshold=0
+      SPRING_DATASOURCE_USERNAME: postgres.cfregbctxxpjlkqxfzzf
+      SPRING_DATASOURCE_PASSWORD: Coopcredit2025
+      RISK_SERVICE_URL: http://risk-central-mock-service:8081
+    depends_on:
+      - risk-central-mock-service
+    networks:
+      - coopcredit-net
+
+  risk-central-mock-service:
+    build:
+      context: ./risk-central-mock-service
+      dockerfile: Dockerfile
+    container_name: risk-service
+    ports:
+      - "8081:8081"
+    environment:
+      SERVER_PORT: 8081
+    networks:
+      - coopcredit-net
+
+networks:
+  coopcredit-net:
+    driver: bridge

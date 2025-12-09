@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.coopcredit.creditApplication.domain.usecase.RegisterAffiliateUseCaseImplTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.638 s -- in com.coopcredit.creditApplication.domain.usecase.RegisterAffiliateUseCaseImplTest
